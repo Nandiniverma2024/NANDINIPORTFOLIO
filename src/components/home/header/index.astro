@@ -1,6 +1,53 @@
 ---
+
+// IMPORT ASTRO ATOMS
+import Link from "@/atoms/links/index.astro"
+import ListRed from "@/atoms/lists/red/index.astro"
+import ListWhite from "@/atoms/lists/white-hover-red/index.astro"
+
+// LIST ARRAY
+const ListArray = [
+    { 
+        href:"",
+        title:"Experience"
+    },
+    { 
+        href:"",
+        title:"skills"
+    },
+    { 
+        href:"",
+        title:"projects"
+    },
+    { 
+        href:"",
+        title:"achievements"
+    },
+    { 
+        href:"",
+        title:"contacts"
+    }
+]
+
 ---
 
 <section class="bg-black py-10">
-    <h2 class="text-white text-7xl">Hello , I am buga</h2>
+    <ul class="flex justify-start gap-5">
+        <Link aria_label="" href="">
+            <ListRed>Home</ListRed>
+        </Link>
+        {
+            ListArray.map( ( item ) =>{
+
+                return(
+
+                    <Link aria_label={ item.title } href={ item.href }>
+                        <ListWhite>{ item.title }</ListWhite>
+                    </Link>
+
+                )
+
+            } )
+        }
+    </ul>
 </section>
